@@ -18,6 +18,12 @@ module.exports = [
 					{text: '前端基础', link: '/技术文章/vue/vue01'},
 				]
 			},
+            {
+				text: '流媒体',
+				items: [
+					{text: '流媒体基础', link: '/技术文章/流媒体/协议'},
+				]
+			},            
         ]
     },
     {
