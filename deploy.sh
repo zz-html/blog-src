@@ -3,15 +3,15 @@
 # 确保脚本抛出遇到的错误
 set -e
  
-# 生成静态文件 , yarn docs:build
-npm run docs:build
-rm -rf ../blog/dist/*
+# 生成静态文件
+npm run build
+rm -rf ../blog/*
 
 # 将build生成的dist目录拷贝至上一层目录中
-cp -rf dist ../blog/
+cp -rf dist/* ../blog/
 
 # 进入生成的文件夹
-cd ../blog/dist
+cd ../blog
 
 # git初始化，每次初始化不影响推送
 git init
