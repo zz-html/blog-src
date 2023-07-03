@@ -45,8 +45,8 @@ module.exports = {
 		
 	},
 	'@vuepress-reco/vuepress-plugin-rss':{
-		site_url: "https://it235.com", //网站地址
-        copyright: "小虎聊编程", //版权署名
+		site_url: "https://zz-html.github.io", //网站地址
+    copyright: "小虎聊编程", //版权署名
 	},
 	'reading-progress':{
 		//阅读进度条

@@ -35,10 +35,8 @@ module.exports = [
     {
         text: '博客', icon: 'reco-blog',
         items: [
-            {text: '腾讯', link: 'https://how.ke.qq.com/', icon: 'reco-blog'},
-			{text: 'B站', link: 'https://space.bilibili.com/394702492', icon: 'reco-bilibili'},
-            {text: '小虎', link: 'https://www.it235.com/', icon: 'reco-blog'},
+            {text: '小虎', link: 'https://zz-html.github.io/', icon: 'reco-blog'},
         ]
-    },/**/
+    },
 	{ text: '时间轴', link: '/timeline/', icon: 'reco-date' }
 ]
