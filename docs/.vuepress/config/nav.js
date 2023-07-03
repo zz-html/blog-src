@@ -21,7 +21,8 @@ module.exports = [
             {
 				text: '流媒体',
 				items: [
-					{text: '流媒体基础', link: '/技术文章/流媒体/协议'},
+					{text: '协议基础', link: '/技术文章/流媒体/协议'},
+                    {text: 'FFmpeg', link: '/技术文章/流媒体/FFmpeg'},
 				]
 			},            
         ]

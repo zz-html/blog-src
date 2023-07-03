@@ -9,6 +9,7 @@ categories:
 # FFmpeg
 
 > FFmpeg库
+
 * avcodec：编解码（最重要的库）。
 * avformat：封装格式处理。
 * avfilter：滤镜特效处理。
@@ -34,8 +35,8 @@ categories:
 
 > FFmpeg解码的数据结构
 
-NAL头 +RBSP(视频编码数据)
 ![decode2](./FFmpeg.assets/decode2.png)
+
 * AVFormatContext
   封装格式上下文结构体，也是统领全局的结构体，保存了视频文件封装格式相关信息。
 * AVInputFormat
@@ -97,7 +98,7 @@ NAL头 +RBSP(视频编码数据)
   pict_type：帧类型（只针对视频） 。例如I，P，B。
 
   > tip
-
+  >
 * 解码后的数据为什么要经过sws_scale()函数处理？
-解码后YUV格式的视频像素数据保存在AVFrame的data[0]、data[1]、data[2]中。但是这些像素值并不是连续存储的，每行有效像素之后存储了一些无效像素 。 以亮度 Y 数据为例 ， data[0] 中一共包含了linesize[0]*height个数据。但是出于优化等方面的考虑，linesize[0]实际上并不等于宽度width，而是一个比宽度大一些的值。因此需要使用sws_scale()进行转换。转换后去除了无效数据，width和linesize[0]取值相等。
-![decode3](./FFmpeg.assets/decode3.png)
+  解码后YUV格式的视频像素数据保存在AVFrame的data[0]、data[1]、data[2]中。但是这些像素值并不是连续存储的，每行有效像素之后存储了一些无效像素 。 以亮度 Y 数据为例 ， data[0] 中一共包含了linesize[0]*height个数据。但是出于优化等方面的考虑，linesize[0]实际上并不等于宽度width，而是一个比宽度大一些的值。因此需要使用sws_scale()进行转换。转换后去除了无效数据，width和linesize[0]取值相等。
+  ![decode3](./FFmpeg.assets/decode3.png)
