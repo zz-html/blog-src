@@ -23,6 +23,7 @@ module.exports = [
 				items: [
 					{text: '协议基础', link: '/技术文章/流媒体/协议'},
                     {text: 'FFmpeg', link: '/技术文章/流媒体/FFmpeg'},
+                    {text: 'SDL', link: '/技术文章/流媒体/SDL'},
 				]
 			},            
         ]
