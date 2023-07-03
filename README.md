@@ -28,4 +28,4 @@ $ yarn docs:dev  或 npm run docs:dev
 
 ### 预览
 
-![1563786698861](./docs/.vuepress/public/view.png)
+![1563786698861](./docs/.vuepress/public/avatar.png)
