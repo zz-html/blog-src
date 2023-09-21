@@ -25,3 +25,5 @@ cvtColor(image, gray_image, COLOR_BGR2GRAY);
 只有8位、16位的PNG、JPG、Tiff文件格式而且是单通道或者三通道的BGR的图像才可以通过这种方式保存  
 保存PNG格式的时候可以保存透明通道的图片  
 可以指定压缩参数  
+
+> Harris角点检测理

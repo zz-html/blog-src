@@ -2,7 +2,7 @@
 
 > 配套学习视频地址：https://www.bilibili.com/video/BV17t41177cr
 >
-> github预览地址：https://zz-html.github.io/blog/
+> github预览地址：https://zz-html.github.io
 
 **白嫖有罪，如有帮助，点赞收藏！**
 
