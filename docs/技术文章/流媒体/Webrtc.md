@@ -73,3 +73,24 @@ server {
 }
 ```
 访问测试 https://ruijie.asia  
+### server-java
+编译demo工程 https://github.com/zz-media/webrtc/tree/main/server-java
+```
+docker run -d -p 18080:18080 -p 19000:19000 -v /build/server-java:/usr/local/app --name server-java --network server-network openjdk:8u272-jdk  java -jar -server -Xms256M -Xmx512M /usr/local/app/server-java.jar
+```
+ng conf新增配置
+```
+server {
+    location /socket.io/ {
+        # socket所在ip和端口号
+        proxy_pass http://server-java:19000/socket.io/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    } 
+}
+```
+### client-vue
+编译demo工程 https://github.com/zz-media/webrtc/tree/main/server-java
+放到ng目录下
+访问 https://124.220.1.36/media-web
