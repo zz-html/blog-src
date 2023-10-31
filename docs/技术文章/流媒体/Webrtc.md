@@ -87,11 +87,43 @@ docker启动network
 docker run -d --name turn --network=server-network -p 3478:3478 -p 3478:3478/udp -p 5349:5349 -p 5349:5349/udp -p 60000-60100:60000-60100/udp -v /build/coturn/:/etc/coturn/ coturn/coturn
 ```
 
-#### turnserver.conf动态秘钥配置
+#### turnserver.conf redis配置、web配置
+```
+listening-ip=0.0.0.0
+listening-port=3478
+tls-listening-port=5349
+external-ip=124.220.1.36
+realm=ruijie.asia
+min-port=60000
+max-port=60100
+lt-cred-mech
+user=admin:123456
+cert=/etc/coturn/turn_server_cert.pem
+pkey=/etc/coturn/turn_server_pkey.pem
+redis-userdb="ip=redis dbname=5 port=6379 password=zz@Redis connect_timeout=30"
+redis-statsdb="ip=redis dbname=6 port=6379 password=zz@Redis connect_timeout=30"
+web-admin
+web-admin-ip=0.0.0.0
+web-admin-port=8080
+```
 ```
 docker run -d -p 6379:6379 --name redis --network=server-network redis:6.0.1 --requirepass "zz@Redis"
 ```
-
+```
+docker run -d --name turn --network=server-network -p 8080:8080 -p 3478:3478 -p 3478:3478/udp -p 5349:5349 -p 5349:5349/udp -p 60000-60100:60000-60100/udp -v /build/coturn/:/etc/coturn/ coturn/coturn
+```
+redis中添加turn用户
+```
+turnadmin -a -N "ip=redis dbname=5 port=6379 password=zz@Redis  connect_timeout=30" -u userzz -r ruijie.asia -p zzuser
+```
+redis中添加admin用户
+```
+turnadmin -A -N "ip=redis dbname=5 port=6379 password=zz@Redis  connect_timeout=30" -u adminzz -r ruijie.asia -p zzadmin
+```
+验证数据库中是否添加成功
+```
+turnadmin -l --redis-userdb="ip=redis dbname=5 port=6379 password=zz@Redis  connect_timeout=30"
+```
 
 ### nginx
 
