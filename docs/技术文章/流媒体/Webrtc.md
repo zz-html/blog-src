@@ -35,6 +35,30 @@ docker run -d --name turn --network=host -v /build/coturn/turnserver.conf:/etc/c
 ```
 docker run -d --name turn -p 3478:3478 -p 3478:3478/udp -p 5349:5349 -p 5349:5349/udp -p 49190-49200:49190-49200/udp -v /build/coturn/turnserver.conf:/etc/coturn/turnserver.conf coturn/coturn
 ```
+turnserver.conf加密配置
+进入docker容器成功秘钥
+```
+openssl req -x509 -newkey rsa:2048 -keyout /build/coturn/turn_server_pkey.pem -out /build/coturn/turn_server_cert.pem -days 99999 -nodes
+```
+```
+listening-ip=0.0.0.0
+listening-port=3478
+tls-listening-port=5349
+external-ip=124.220.1.36
+realm=ruijie.asia
+min-port=60000
+max-port=60100
+lt-cred-mech
+user=admin:123456
+cli-password=654321
+cert=/etc/coturn/turn_server_cert.pem
+pkey=/etc/coturn/turn_server_pkey.pem
+```
+docker启动
+```
+docker run -d --name turn --network=host -v /build/coturn/:/etc/coturn/ coturn/coturn
+```
+
 ### nginx
 ```
 docker network ls

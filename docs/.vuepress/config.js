@@ -82,7 +82,7 @@ module.exports = {
         search: true,
         searchMaxSuggestions: 10,
         // ICP备案
-        record: '沪ICP备xxxxx号-6',
+        record: '闽ICP备2023015363号',
         recordLink: 'https://beian.miit.gov.cn/',
 		// 公网安备备案
         cyberSecurityRecord: '沪公网安备 xxxxxxx号',
