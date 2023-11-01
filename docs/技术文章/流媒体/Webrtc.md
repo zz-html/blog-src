@@ -124,7 +124,27 @@ turnadmin -A -N "ip=redis dbname=5 port=6379 password=zz@Redis  connect_timeout=
 ```
 turnadmin -l --redis-userdb="ip=redis dbname=5 port=6379 password=zz@Redis  connect_timeout=30"
 ```
-
+#### turnserver.conf 动态秘钥
+方案：redis保存临时用户，参考https://blog.csdn.net/anshichuxuezhe/article/details/128430147
+java md5生成代码
+```
+        String username = "usertest";
+        String realm = "ruijie.asia";
+        String password = "usertest";
+        String input = username + ":" + realm + ":" + password;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] inputBytes = input.getBytes();
+            byte[] hashBytes = md.digest(inputBytes);
+            StringBuilder hexString = new StringBuilder();
+            for (byte hashByte : hashBytes) {
+                hexString.append(String.format("%02x", hashByte));
+            }
+            System.out.println(username +" MD5 Hash: " + hexString.toString());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+```
 ### nginx
 
 ```
