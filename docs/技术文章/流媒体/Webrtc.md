@@ -34,12 +34,17 @@ WebRTC是一个由Google发起的实时通讯解决方案，其中包含视频�
 ### coturn
 
 #### turnserver.conf配置
-
+vi /build/coturn/turnserver.conf
 ```
+listening-ip=0.0.0.0
 listening-port=3478
 external-ip=124.220.1.36
-user=admin:123456
 realm=ruijie.asia
+min-port=60000
+max-port=60100
+lt-cred-mech
+user=admin:123456
+cli-password=654321
 ```
 
 docker启动
@@ -49,7 +54,7 @@ docker run -d --name turn --network=host -v /build/coturn/turnserver.conf:/etc/c
 ```
 
 ```
-docker run -d --name turn -p 3478:3478 -p 3478:3478/udp -p 5349:5349 -p 5349:5349/udp -p 49190-49200:49190-49200/udp -v /build/coturn/turnserver.conf:/etc/coturn/turnserver.conf coturn/coturn
+docker run -d --name turn -p 3478:3478 -p 3478:3478/udp -p 5349:5349 -p 5349:5349/udp -p 60000-60100:60000-60100/udp -v /build/coturn/turnserver.conf:/etc/coturn/turnserver.conf coturn/coturn
 ```
 
 #### turnserver.conf加密配置
