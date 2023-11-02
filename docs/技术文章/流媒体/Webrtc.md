@@ -106,6 +106,7 @@ redis-userdb="ip=redis dbname=5 port=6379 password=zz@Redis connect_timeout=30"
 redis-statsdb="ip=redis dbname=6 port=6379 password=zz@Redis connect_timeout=30"
 web-admin
 web-admin-port=8080
+web-admin-ip=0.0.0.0
 ```
 ```
 docker run -d -p 6379:6379 --name redis --network=server-network redis:6.0.1 --requirepass "zz@Redis"
