@@ -35,25 +35,23 @@ WebRTC是一个由Google发起的实时通讯解决方案，其中包含视频�
 
 #### turnserver.conf配置
 vi /build/coturn/turnserver.conf
-```
-listening-ip=0.0.0.0
-listening-port=3478
-external-ip=124.220.1.36
-realm=ruijie.asia
-min-port=60000
-max-port=60100
-lt-cred-mech
-user=admin:123456
-cli-password=654321
-```
-
-docker启动
-
+docker启动host
 ```
 docker run -d --name turn --network=host -v /build/coturn/turnserver.conf:/etc/coturn/turnserver.conf coturn/coturn
 ```
-
+docker启动network
 ```
+realm=ruijie.asia
+listening-port=3478
+external-ip=124.220.1.36
+lt-cred-mech
+user=admin:123456
+#cli-password=654321
+min-port=60000
+max-port=60100
+```
+```
+docker stop turn && docker rm turn
 docker run -d --name turn -p 3478:3478 -p 3478:3478/udp -p 5349:5349 -p 5349:5349/udp -p 60000-60100:60000-60100/udp -v /build/coturn/turnserver.conf:/etc/coturn/turnserver.conf coturn/coturn
 ```
 
@@ -66,16 +64,15 @@ openssl req -x509 -newkey rsa:2048 -keyout /build/coturn/turn_server_pkey.pem -o
 ```
 
 ```
-listening-ip=0.0.0.0
+realm=ruijie.asia
 listening-port=3478
 tls-listening-port=5349
 external-ip=124.220.1.36
-realm=ruijie.asia
-min-port=60000
-max-port=60100
 lt-cred-mech
 user=admin:123456
-cli-password=654321
+#cli-password=654321
+min-port=60000
+max-port=60100
 cert=/etc/coturn/turn_server_cert.pem
 pkey=/etc/coturn/turn_server_pkey.pem
 ```
@@ -94,21 +91,20 @@ docker run -d --name turn --network=server-network -p 3478:3478 -p 3478:3478/udp
 
 #### turnserver.conf redis配置、web配置
 ```
-listening-ip=0.0.0.0
+realm=ruijie.asia
 listening-port=3478
 tls-listening-port=5349
 external-ip=124.220.1.36
-realm=ruijie.asia
-min-port=60000
-max-port=60100
 lt-cred-mech
 user=admin:123456
+#cli-password=654321
+min-port=60000
+max-port=60100
 cert=/etc/coturn/turn_server_cert.pem
 pkey=/etc/coturn/turn_server_pkey.pem
 redis-userdb="ip=redis dbname=5 port=6379 password=zz@Redis connect_timeout=30"
 redis-statsdb="ip=redis dbname=6 port=6379 password=zz@Redis connect_timeout=30"
 web-admin
-web-admin-ip=0.0.0.0
 web-admin-port=8080
 ```
 ```
