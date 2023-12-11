@@ -26,7 +26,14 @@ module.exports = [
                     {text: 'SDL', link: '/技术文章/流媒体/SDL'},
                     {text: 'Webrtc', link: '/技术文章/流媒体/Webrtc'},
 				]
-			},            
+			}, 
+            {
+				text: 'python',
+				items: [
+                    {text: 'python', link: '/技术文章/python/python'},
+					{text: 'django', link: '/技术文章/python/django'},
+				]
+			},                       
         ]
     },
     {

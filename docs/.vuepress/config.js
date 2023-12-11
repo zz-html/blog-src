@@ -85,7 +85,7 @@ module.exports = {
         record: '闽ICP备2023015363号',
         recordLink: 'https://beian.miit.gov.cn/',
 		// 公网安备备案
-        cyberSecurityRecord: '沪公网安备 xxxxxxx号',
+        cyberSecurityRecord: '闽公网安备35010402351545',
         cyberSecurityLink: 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=xxx05177',
 		//友链
         friendLink: [
