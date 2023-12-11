@@ -27,5 +27,5 @@ pip install -r requirements.txt
 django项目运行 python manage.py runserver
 ## 退出虚拟环境
 ```
-pip install -r requirements.txt
+deactivate
 ```
