@@ -6,6 +6,8 @@ tags:
 categories:
 - 'python'
 ---
+# python
+官网 https://www.python.org/
 # python虚拟环境
 可以使用虚拟环境（virtual environment）来在本地文件夹中安装 Python 项目的依赖。虚拟环境是一个隔离的 Python 环境，允许你在项目级别管理依赖，而不影响全局 Python 环境。
 ## 创建虚拟环境
