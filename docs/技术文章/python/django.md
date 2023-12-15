@@ -158,3 +158,27 @@ def model_list_json(request):
     data = [model.to_dict() for model in models]
     return JsonResponse(data, safe=False) 
 ```
+## vscode下断点调试Django 项目
+确保已经在 VSCode 中安装了 Python 扩展  
+在项目根目录下创建一个名为 .vscode 的文件夹，创建一个 launch.json 文件。配置：
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver",
+                "8000",
+                "--noreload",
+                "--nothreading"
+            ],
+            "django": true
+        }
+    ]
+}
+```
+启动调试：在 VSCode 中，打开调试视图。选择 "Django" 配置。点击启动按钮（绿色的三角形）
