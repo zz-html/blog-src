@@ -182,3 +182,90 @@ def model_list_json(request):
 }
 ```
 启动调试：在 VSCode 中，打开调试视图。选择 "Django" 配置。点击启动按钮（绿色的三角形）
+
+## 引入Swagger接口文档
+安装Django REST framework和drf-yasg
+```
+pip install djangorestframework
+pip install drf-yasg
+```
+settings.py文件
+```
+INSTALLED_APPS = [
+    # ...
+    'rest_framework',
+    'drf_yasg',
+    # ...
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+}
+```
+urls.py文件配置drf-yasg
+```
+from django.conf import settings
+from django.conf.urls import url
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic import RedirectView
+
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Your API",
+        default_version='v1',
+        description="Your API description",
+        terms_of_service="https://www.yourapp.com/terms/",
+        contact=openapi.Contact(email="contact@yourapp.com"),
+        license=openapi.License(name="Your License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('myapp/', include('myapp.urls')),  # Replace 'yourapp' with the actual name of your app
+    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    url(r'^$', RedirectView.as_view(url='swagger/', permanent=True)),
+]
+
+```
+给一个接口添加swagger说明
+```
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
+class YourApiView(APIView):
+    @swagger_auto_schema(
+        operation_description="Your operation description",
+        responses={
+            200: "Success response description",
+            400: "Bad request description",
+        },
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'key1': openapi.Schema(type=openapi.TYPE_STRING, description='Description for key1'),
+                'key2': openapi.Schema(type=openapi.TYPE_INTEGER, description='Description for key2'),
+            }
+        )
+    )
+    def post(self, request, *args, **kwargs):
+        # Your view logic here
+        return Response(data={'message': 'Success'}, status=status.HTTP_200_OK)
+```
+
+运行Django开发服务器 python manage.py runserver  
+访问 http://127.0.0.1:8000/swagger/ 即可查看Swagger UI并测试你的API。
