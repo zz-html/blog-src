@@ -22,12 +22,12 @@ pip install numpy
 python -m venv pytorch_env
 pytorch_env\Scripts\activate
 pip install torch torchvision torchaudio
-x = torch.rand(5, 3)
-print(x)
 ```
 ```
 import torch
 print(torch.__version__)
+x = torch.rand(5, 3)
+print(x)
 ```
 
 # yolov8
