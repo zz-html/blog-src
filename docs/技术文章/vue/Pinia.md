@@ -15,7 +15,7 @@ demo源码地址 https://github.com/zz-html/vue3-ts-project/tree/main/pinia-demo
 pnpm create vite
 ```
 
-输入vue项目名称，pinia-demo
+输入vue项目名称，pinia-demo  
 选择Vue  
 选择TypeScript  
 cd 进入到 pinia-demo 项目路径下

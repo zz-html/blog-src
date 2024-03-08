@@ -15,10 +15,10 @@ demo源码地址 https://github.com/zz-html/vue3-ts-project/tree/main/tailwindcs
 pnpm create vite
 ```
 
-输入vue项目名称，tailwindcss-demo
+输入vue项目名称，tailwindcss-demo  
 选择Vue  
 选择TypeScript  
-cd 进入到 tailwindcss 项目路径下
+cd 进入到 tailwindcss-demo 项目路径下
 ```
 pnpm install
 pnpm run dev
