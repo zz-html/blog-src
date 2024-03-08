@@ -41,6 +41,7 @@ yolo predict model=yolov8n.pt source='bus.jpg'
 ```
 
 # openvino
+yolov8主流部署平台openvino，ONNXRUNTIME-GPU1.13，TensorRT8.4
 ```
 python -m venv openvino_env
 openvino_env\Scripts\activate
