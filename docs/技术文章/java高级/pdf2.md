@@ -7,6 +7,7 @@ tags:
 categories:
 - 'java'
 ---
+官网：http://www.jfree.org/jfreechart/
 准备工作：  
 搭建springboot工程  
 
@@ -33,6 +34,15 @@ categories:
 		<artifactId>openhtmltopdf-svg-support</artifactId>
 		<version>1.0.10</version>
 	</dependency>
+```
+
+如果需要绘制图形（例如饼图、折线图），需要结合JFreeChart使用。
+```
+    <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>1.5.3</version>
+    </dependency>
 ```
 
 ## 示例
@@ -125,4 +135,46 @@ public class PdfController {
 	}
 
 }
+```
+
+## JFreeChart图片转base64
+```
+	private String createPdfPie3() {
+		String base64Image = null;
+		try {
+			// Step 1: 创建数据集
+			DefaultPieDataset dataset = new DefaultPieDataset();
+			dataset.setValue("类别A", 40);
+			dataset.setValue("类别B", 30);
+			dataset.setValue("类别C", 20);
+			dataset.setValue("类别D", 10);
+			// Step 2: 使用 JFreeChart 创建饼图
+			JFreeChart pieChart = ChartFactory.createPieChart(
+					"示例饼图", // 图表标题
+					dataset,   // 数据集
+					true,      // 是否显示图例
+					true,
+					false);
+			// Step 3: 设置字体以显示中文
+			PiePlot plot = (PiePlot) pieChart.getPlot();
+			Font font = new Font("SimHei", Font.PLAIN, 24); // 使用 "SimHei" 或其他支持中文的字体
+			pieChart.getTitle().setFont(font);              // 设置标题字体
+			pieChart.getLegend().setItemFont(font);         // 设置图例字体
+			plot.setLabelFont(font);                        // 设置饼图标签字体
+			// Step 4: 渲染为 BufferedImage
+			BufferedImage bufferedImage = pieChart.createBufferedImage(1200, 800);
+			// Step 5: 将 BufferedImage 转换为字节数组
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(bufferedImage, "png", baos);
+			byte[] imageBytes = baos.toByteArray();
+			// Step 6: 将字节数组编码为 Base64 字符串
+			base64Image = Base64.getEncoder().encodeToString(imageBytes);
+			// 输出 Base64 字符串
+			System.out.println("Base64 Image: " + base64Image);
+			return base64Image;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return base64Image;
+	}
 ```
