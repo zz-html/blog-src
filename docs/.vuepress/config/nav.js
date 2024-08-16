@@ -14,25 +14,15 @@ module.exports = [
 			},
             {
 				text: '前端',
-				items: [
-					{text: '前端基础', link: '/技术文章/vue/vue01'},
-				]
+                link: '/技术文章/vue/vue01'
 			},
             {
 				text: 'C',
-				items: [
-					{text: '协议基础', link: '/技术文章/流媒体/协议'},
-                    {text: 'FFmpeg', link: '/技术文章/流媒体/FFmpeg'},
-                    {text: 'SDL', link: '/技术文章/流媒体/SDL'},
-                    {text: 'Webrtc', link: '/技术文章/流媒体/Webrtc'},
-				]
+				link: '/技术文章/c/AppAttack'
 			}, 
             {
 				text: 'python',
-				items: [
-                    {text: 'python', link: '/技术文章/python/python'},
-					{text: 'django', link: '/技术文章/python/django'},
-				]
+				link: '/技术文章/python/python'
 			},                       
         ]
     },
