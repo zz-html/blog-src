@@ -21,7 +21,11 @@ OD官网地址：[https://www.ollydbg.de](https://www.ollydbg.de)
 
 修改程序数据的内存地址。  
 拦截CALL事件。  
-![od](./AppAttack.assets/od.png)
+![od](./AppAttack.assets/od.png)  
+Ctrl+G 搜索需要查找的内存地址。  
+选择数值->右键点击->Binary->Edit。进行内存地址数值修改。  
+Alt+F1调出Command line。  
+输入 "hw ${内存地址}" 设置内存断点。  
 
 ## 攻击程序使用
 
