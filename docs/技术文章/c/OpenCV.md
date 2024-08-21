@@ -6,6 +6,12 @@ tags:
 categories:
 - '流媒体'
 ---
+
+源码：[https://github.com/zz-c/opencv](https://github.com/zz-c/opencv)  
+源码2：[https://github.com/zz-python/python-ai/tree/main/opencv](https://github.com/zz-python/python-ai/tree/main/opencv)  
+
+## API
+
 > 加载图像（cv::imread）
 
 imread功能是加载图像文件成为一个Mat对象，其中第一个参数表示图像文件名称第二个参数，表示加载的图像是什么类型，支持常见的三个参数值IMREAD_UNCHANGED (<0) 表示加载原图，不做任何改变IMREAD_GRAYSCALE ( 0)表示把原图作为灰度图像加载进来IMREAD_COLOR (>0) 表示把原图作为RGB图像加载进来

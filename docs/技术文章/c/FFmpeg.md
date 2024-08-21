@@ -6,7 +6,7 @@ tags:
 categories:
 - '流媒体'
 ---
-# FFmpeg
+源码：[https://github.com/zz-c/ffmpeg](https://github.com/zz-c/ffmpeg)  
 
 > FFmpeg库
 

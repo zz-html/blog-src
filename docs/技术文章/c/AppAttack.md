@@ -1,5 +1,5 @@
 ---
-title: '程序渗透'
+title: '程序逆向渗透'
 date: 2024-08-16 12:00:00
 tags:
 - 'C'
@@ -25,7 +25,8 @@ OD官网地址：[https://www.ollydbg.de](https://www.ollydbg.de)
 Ctrl+G 搜索需要查找的内存地址。  
 选择数值->右键点击->Binary->Edit。进行内存地址数值修改。  
 Alt+F1调出Command line。  
-输入 "hw ${内存地址}" 设置内存断点。  
+输入 "hw ${内存地址}" 设置硬件断点，内存被修改时触发。  
+找到触发修改内存call的地址。  
 
 ## 攻击程序使用
 
@@ -38,7 +39,7 @@ Alt+F1调出Command line。
 ```C
 HWND FindWindow(
   LPCTSTR lpClassName,  //窗口类名 NULL
-  LPCTSTR lpWindowName  //窗口标题 NULL
+  LPCTSTR lpWindowName  //窗口标题
 );
 ```
 

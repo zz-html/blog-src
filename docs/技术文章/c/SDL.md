@@ -6,7 +6,7 @@ tags:
 categories:
 - '流媒体'
 ---
-# SDL
+源码：[https://github.com/zz-c/CMAKE/tree/main/sdl_test](https://github.com/zz-c/CMAKE/tree/main/sdl_test)
 
 > SDL视频显示的流程
 
