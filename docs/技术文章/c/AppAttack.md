@@ -7,6 +7,10 @@ categories:
 - 'C'
 ---
 本文介绍如何攻击程序一个应用进程，包括修改内存数据，事件拦截。  
+
+* 通过CE、OD工具进行攻击
+* 通过windows api进行攻击
+
 CE官网地址：[https://www.cheatengine.org](https://www.cheatengine.org)  
 OD官网地址：[https://www.ollydbg.de](https://www.ollydbg.de)  
 被攻击程序源码：[https://github.com/zz-c/CMAKE/tree/main/windows_test](https://github.com/zz-c/CMAKE/tree/main/windows_test)  
@@ -15,24 +19,33 @@ OD官网地址：[https://www.ollydbg.de](https://www.ollydbg.de)
 ## CE使用
 
 找出和修改程序数据的内存地址。  
-![ce](./AppAttack.assets/ce.png)
+![ce](./AppAttack.assets/ce.png)  
+找到变量的内存地址0x00FA7170=程序基地址+0x17170。
 
 ## OD使用
 
-修改程序数据的内存地址。  
-拦截CALL事件。  
 ![od](./AppAttack.assets/od.png)  
+
+### 修改程序数据的内存地址
+
 Ctrl+G 搜索需要查找的内存地址。  
 选择数值->右键点击->Binary->Edit。进行内存地址数值修改。  
+![od2](./AppAttack.assets/od2.png)  
+
+### 拦截CALL事件
+
 Alt+F1调出Command line。  
 输入 "hw ${内存地址}" 设置硬件断点，内存被修改时触发。  
-找到触发修改内存call的地址。  
+![od3](./AppAttack.assets/od3.png)  
+往上找到触发修改内存call函数的地址0x00FA1810。  
 
 ## 攻击程序使用
 
 ![attack](./AppAttack.assets/attack.png)
 
 ## 源码windows api说明
+
+获取窗口句柄->获取窗口进程ID->获取进程句柄->操作
 
 ### 获取窗口句柄
 
@@ -74,7 +87,7 @@ DWORD GetWindowThreadProcessId(
 );
 ```
 
-### 打开指定进程
+### 获取进程句柄
 
 ```C
 HANDLE OpenProcess(
