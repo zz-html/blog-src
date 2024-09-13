@@ -6,6 +6,8 @@ tags:
 categories:
 - 'OpenTelemetry'
 ---
+官网: [https://opentelemetry.io/zh/](https://opentelemetry.io/zh/)  
+文档（墙）: [https://opentelemetry.opendocs.io/docs/collector/getting-started/](https://opentelemetry.opendocs.io/docs/collector/getting-started/)  
 
 ## 创建 Collector 配置文件
 
@@ -69,3 +71,57 @@ services:
 docker-compose up -d  
 验证部署  
 访问 Jaeger UI： 在浏览器中打开 http://zzdev.asia:16686，可以查看追踪数据。
+
+## springboot引入
+
+源码：https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/opentelemetry  
+
+```xml
+    <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-api</artifactId>
+        <version>1.42.1</version>
+    </dependency>
+    <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-sdk</artifactId>
+        <version>1.42.1</version>
+    </dependency>
+    <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-exporter-otlp</artifactId>
+        <version>1.42.1</version>
+    </dependency>
+    <dependency>
+        <groupId>io.opentelemetry.instrumentation</groupId>
+        <artifactId>opentelemetry-spring-boot-starter</artifactId>
+        <version>2.7.0</version>
+    </dependency>
+
+```
+
+```yaml
+otel:
+  exporter:
+    otlp:
+      endpoint: "http://zzdev.asia:4317"  # OTLP gRPC 端点
+      protocol: "grpc"                   # 指定协议为 gRPC
+  service:
+    name: "my-spring-boot-app"           # 设置服务名称
+  traces:
+    sampler: "always_on"                 # 设置采样策略（always_on 表示全量采样）
+
+```
+
+## springboot无侵入引入
+
+从 OpenTelemetry 官方网站或 GitHub Releases 下载最新版本的 Java Agent：  
+https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases  
+下载 opentelemetry-javaagent.jar 文件。  
+
+源码：https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/spring-boot-study-demo  
+
+```bash
+java -javaagent:opentelemetry-javaagent.jar -Dotel.exporter.otlp.endpoint=http://zzdev.asia:4317 -Dotel.exporter.otlp.protocol=grpc -Dotel.service.name=springboot-demo-service -jar demo-1.0.0.jar
+
+```
