@@ -159,6 +159,24 @@ import './opentelemetry'; // 引入 OpenTelemetry 配置
 createApp(App).mount('#app');
 ```
 
+手动埋点
+
+```javascript
+// 在组件或服务中
+import { trace } from '@opentelemetry/api';
+// 获取 Tracer 实例
+const tracer = trace.getTracer('vue-frontend');
+
+const manuData = () => {
+  console.log("manuData");
+  const span = tracer.startSpan('fetch-data');
+  span.addEvent('do something1 successfully');
+  span.addEvent('do something2 successfully');
+  // span.recordException(error);
+  span.end();
+};
+```
+
 vite.config.js代理配置：
 
 ```javascript
