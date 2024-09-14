@@ -86,18 +86,6 @@ npm install @opentelemetry/sdk-trace-web @opentelemetry/auto-instrumentations-we
 
 ```
 
-## springboot无侵入引入
-
-从 OpenTelemetry 官方网站或 GitHub Releases 下载最新版本的 Java Agent：  
-源码：[https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases)  
-下载 opentelemetry-javaagent.jar 文件。  
-
-源码：[https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/spring-boot-study-demo](https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/spring-boot-study-demo)  
-
-```bash
-java -javaagent:opentelemetry-javaagent.jar -Dotel.exporter.otlp.endpoint=http://zzdev.asia:4317 -Dotel.exporter.otlp.protocol=grpc -Dotel.service.name=springboot-demo-service -jar demo-1.0.0.jar
-```
-
 创建一个新的配置文件 opentelemetry.js，在 src 目录下，用于初始化 OpenTelemetry 并配置自动埋点。
 
 ```javascript
@@ -112,17 +100,17 @@ import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions'
 
 // 配置 Resource 并设置 SERVICE_NAME
 const resource = new Resource({
-	[SemanticResourceAttributes.SERVICE_NAME]: 'vue-service', // 替换为你的服务名称
+  [SemanticResourceAttributes.SERVICE_NAME]: 'vue-service', // 替换为你的服务名称
 })
 
 // 创建 Tracer 提供者
 const provider = new WebTracerProvider({
-	resource: resource, // 设置 Resource
+  resource: resource, // 设置 Resource
 });
 
 // 配置 OTLP 导出器，将数据发送到 OpenTelemetry Collector
 const exporter = new OTLPTraceExporter({
-	//url: 'http://zzdev.asia:4318/v1/traces', // 替换为你的 OpenTelemetry Collector 端点
+  //url: 'http://zzdev.asia:4318/v1/traces', // 替换为你的 OpenTelemetry Collector 端点
   url: '/v1/traces', // 替换为你的 OpenTelemetry Collector 端点
 });
 
@@ -191,6 +179,18 @@ export default defineConfig({
     },  
   }
 })
+```
+
+## springboot无侵入引入
+
+从 OpenTelemetry 官方网站或 GitHub Releases 下载最新版本的 Java Agent：  
+源码：[https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases)  
+下载 opentelemetry-javaagent.jar 文件。  
+
+源码：[https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/spring-boot-study-demo](https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/spring-boot-study-demo)  
+
+```bash
+java -javaagent:opentelemetry-javaagent.jar -Dotel.exporter.otlp.endpoint=http://zzdev.asia:4317 -Dotel.exporter.otlp.protocol=grpc -Dotel.service.name=springboot-demo-service -jar demo-1.0.0.jar
 ```
 
 ## springboot引入

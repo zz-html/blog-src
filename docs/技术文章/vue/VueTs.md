@@ -7,8 +7,7 @@ tags:
 categories:
 - '前端'
 ---
-# Tailwindcss
-官网 https://www.tailwindcss.cn/  
+
 demo源码地址 https://github.com/zz-html/vue3-ts-project/tree/main/vue-ts-demo
 ## 创建工程
 ```

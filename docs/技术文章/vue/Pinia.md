@@ -7,7 +7,7 @@ tags:
 categories:
 - '前端'
 ---
-# Pinia
+
 官网 https://pinia.web3doc.top/  
 demo源码地址 https://github.com/zz-html/vue3-ts-project/tree/main/pinia-demo
 ## 创建工程
