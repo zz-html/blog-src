@@ -214,6 +214,12 @@ java -javaagent:opentelemetry-javaagent.jar -Dotel.exporter.otlp.endpoint=http:/
 ## springboot引入
 
 源码：[https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/opentelemetry](https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/opentelemetry)  
+通过添加 opentelemetry-spring-boot-starter，Spring Boot 应用将自动为以下操作添加追踪：
+
+* HTTP 请求（通过 Spring MVC 或 WebFlux）
+* 数据库调用（通过 JDBC）
+* REST 客户端调用（通过 RestTemplate）
+* 其他常见库和框架
 
 ```xml
     <dependency>
