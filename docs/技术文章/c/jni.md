@@ -1,6 +1,6 @@
 ---
 title: 'jni'
-date: 2024-09-13 12:00:00
+date: 2024-11-13 12:00:00
 tags:
 - 'jni'
 categories:
@@ -15,9 +15,15 @@ c源码：
 [https://github.com/zz-c/CMAKE/tree/main/hellojni](https://github.com/zz-c/CMAKE/tree/main/hellojni)  
 [https://github.com/zz-c/CMAKE/tree/main/hellojnilib](https://github.com/zz-c/CMAKE/tree/main/hellojnilib)  
 
-## java
+## java中的native
 
-编写类和native方法
+JAVA底层通过native关键字实现调用jre环境里c的动态库（win下dll，linux下so）
+![native](./jni.assets/native.png)
+![dll](./jni.assets/dll.png)
+
+## demo java
+
+编写类和native方法，生成头文件声明。
 
 ```java
 public class HelloWorldJNI {
@@ -49,9 +55,9 @@ JNIEXPORT void JNICALL Java_top_zhost_jni_HelloWorldJNI_helloJNI
 #endif
 ```
 
-## c
+## demo c
 
-实现头文件方法
+引入头文件，实现头文件方法
 
 ```c
 #include "top_zhost_jni_HelloWorldJNI.h"
@@ -65,7 +71,7 @@ JNIEXPORT void JNICALL Java_top_zhost_jni_HelloWorldJNI_helloJNI
 编译生成动态库，win dll，linux so。
 
 ```txt
-﻿cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.8)
 project(hellojni)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -87,12 +93,11 @@ add_library(hellojni SHARED ${SRC_LIST})
 
 ```java
 
-public class HelloWorldJNI {
-
-    public native void helloJNI(String name);
-
+public class MainTest {
     public static void main(String[] args) {
+        //dll已经移到jdk下
         //System.loadLibrary("hellojni");
+        //dll路径加载
         System.load("G:\\project\\c\\CMAKE\\out\\build\\x64-Debug\\hellojni\\hellojni.dll");
         HelloWorldJNI demo = new HelloWorldJNI();
         demo.helloJNI("jni test");
@@ -101,6 +106,6 @@ public class HelloWorldJNI {
 ```
 
 ```bash
-javac top/zhost/jni/HelloWorldJNI.java
-java top.zhost.jni.HelloWorldJNI
+javac top/zhost/jni/MainTest.java
+java top.zhost.jni.MainTest
 ```
