@@ -32,4 +32,7 @@ django项目运行 python manage.py runserver
 deactivate
 ```
 
-## conda
+## Jupyter Notebook
+安装 Jupyter Notebook：pip install notebook  
+启动 Jupyter Notebook：在命令行中输入 jupyter notebook  
+在浏览器中打开 Jupyter Notebook 服务器 http://localhost:8888，选择或创建一个 .ipynb 文件。
