@@ -62,7 +62,7 @@ module.exports = {
           {
             name: "孤勇者",
             artist: "陈奕迅",
-            url: "/assets/music/gyz.mp3",
+            url: "/music/gyz.mp3",
             cover: "https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg",
           }
         ],
