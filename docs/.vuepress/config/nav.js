@@ -8,8 +8,8 @@ module.exports = [
             {
 				text: 'Java',
 				items: [
-					{text: 'JavaSE', link: '/技术文章/java/javase'},
 					{text: 'JavaEE', link: '/技术文章/java高级/javaee'},
+                    {text: 'dev', link: '/技术文章/dev/frp'}
 				]
 			},
             {

@@ -32,9 +32,9 @@ module.exports = {
         }
     },
     "dynamic-title":{
-        showIcon: "/favicon.ico",
+        showIcon: "/img/favicon.ico",
         showText: "(/≧▽≦/)欢迎回来！",
-        hideIcon: "/favicon.ico",
+        hideIcon: "/img/favicon.ico",
         hideText: "(●—●)哦吼,不要走,给个收藏吧！",
         recoverTime: 2000
     },
