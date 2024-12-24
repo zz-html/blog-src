@@ -4,9 +4,7 @@
 >
 > github预览地址：https://zz-html.github.io
 
-**白嫖有罪，如有帮助，点赞收藏！**
-
-### 运行
+## 运行
 
 ```
 # 打开cmd 全局安装yarn
@@ -26,6 +24,6 @@ $ yarn add -D vuepress 或 npm install -g vuepress
 $ yarn docs:dev  或 npm run docs:dev
 ```
 
-### 预览
+## 预览
 
-![1563786698861](./docs/.vuepress/public/avatar.png)
+[网站](<https://zz-html.github.io>)

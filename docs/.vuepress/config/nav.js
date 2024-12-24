@@ -27,9 +27,9 @@ module.exports = [
         ]
     },
     {
-        text: '生活分享', link: '/生活分享/', icon: 'reco-faq',
+        text: '综合分享', link: '/综合分享/', icon: 'reco-faq',
         items: [
-			{text: '生活分享', link: '/生活分享/life'},
+			{text: '综合分享', link: '/综合分享/life'},
         ]
     },
     {
