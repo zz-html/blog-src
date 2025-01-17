@@ -1,6 +1,6 @@
 ---
 title: 'mario'
-date: 2100-05-01 12:44:15
+date: 2000-05-01 12:44:15
 tags:
 - 'python'
 - 'mario'

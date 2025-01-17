@@ -1,6 +1,6 @@
 ---
 https://www.pika.art/https://pikalabs.com/title: 'AI'
-date: 2100-01-01 00:00:00
+date: 2000-01-01 00:00:00
 tags:
 - 'AI'
 categories:

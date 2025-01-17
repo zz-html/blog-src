@@ -1,22 +1,65 @@
 ---
 title: 本站指南
-date: 2023-06-06
+date: 2066-06-06
 sidebar: 'auto'
 isTimeLine: false
 isShowComment: true
 ---
 
-## 知识体系总览
+::: tip 说明
 
-### 教程类
+本站基于`vuepress`开发，提供本站源码和其他技术源码，用于开发学习。
 
-::: tip 技术图谱
-涵盖各类技术
 :::
 
-目录更新中...
+## 关于本站
 
+本站基于`vuepress`开发
 
-## 书籍推荐
+[本站源码：https://github.com/zz-html/blog-src](<https://github.com/zz-html/blog-src>)
 
-内容书写
+[搭建教程：https://www.bilibili.com/video/BV17t41177cr](<https://www.bilibili.com/video/BV17t41177cr>)
+
+## 本站微信小程序
+
+![小程序](./zSpace.jpg)
+
+小程序基于`uniapp`开发
+
+[源码：https://github.com/zz-html/HBuilderProjects/tree/main/test-project](<https://github.com/zz-html/HBuilderProjects/tree/main/test-project>)
+
+## C/C++
+
+C/C++相关技术
+
+[源码：https://github.com/zz-c](<https://github.com/zz-c>)
+
+## web
+
+web相关技术
+
+[源码：https://github.com/zz-html](<https://github.com/zz-html>)
+
+## android
+
+android相关技术
+
+[源码：https://github.com/zz-android](<https://github.com/zz-android>)
+
+## python
+
+python相关技术
+
+[源码：https://github.com/zz-python](<https://github.com/zz-python>)
+
+## 流媒体综合
+
+流媒体综合相关技术
+
+[源码：https://github.com/zz-media](<https://github.com/zz-media>)
+
+## JAVA及综合
+
+JAVA及综合相关技术
+
+[源码：https://github.com/zhang-zheng](<https://github.com/zhang-zheng>)

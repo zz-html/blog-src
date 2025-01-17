@@ -10,17 +10,58 @@ categories:
 
 ::: tip 说明
 
+本站基于`vuepress`开发，提供本站源码和其他技术源码，用于开发学习。
+
+:::
+
+## 关于本站
+
 本站基于`vuepress`开发
 
 [本站源码](<https://github.com/zz-html/blog-src>)
 
 [搭建教程](<https://www.bilibili.com/video/BV17t41177cr>)
-:::
 
-<!-- more -->
+## 本站微信小程序
 
+![小程序](../guide/zSpace.jpg)
 
+小程序基于`uniapp`开发
 
-下面就是正文，请开始你的表演...
+[源码：https://github.com/zz-html/HBuilderProjects/tree/main/test-project](<https://github.com/zz-html/HBuilderProjects/tree/main/test-project>)
 
-注意下面只能声明`H2`的标题，不能使用`H1`，`H1`已经声明为正上方的`标题`
+## C/C++
+
+C/C++相关技术
+
+[源码：https://github.com/zz-c](<https://github.com/zz-c>)
+
+## web
+
+web相关技术
+
+[源码：https://github.com/zz-html](<https://github.com/zz-html>)
+
+## android
+
+android相关技术
+
+[源码：https://github.com/zz-android](<https://github.com/zz-android>)
+
+## python
+
+python相关技术
+
+[源码：https://github.com/zz-python](<https://github.com/zz-python>)
+
+## 流媒体综合
+
+流媒体综合相关技术
+
+[源码：https://github.com/zz-media](<https://github.com/zz-media>)
+
+## JAVA及综合
+
+JAVA及综合相关技术
+
+[源码：https://github.com/zhang-zheng](<https://github.com/zhang-zheng>)

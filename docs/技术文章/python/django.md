@@ -1,6 +1,6 @@
 ---
 title: 'django'
-date: 2100-05-01 12:44:15
+date: 2024-05-01 12:44:15
 tags:
 - 'python'
 - 'web'
