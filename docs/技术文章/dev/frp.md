@@ -9,7 +9,7 @@ categories:
 
 # frp
 通过frp可以实现内网访问  
-官网 https://github.com/fatedier/frp  
+[官网：https://github.com/fatedier/frp](<https://github.com/fatedier/frp>) 
 
 ## 服务部署
 官网下载版本压缩文件  
@@ -65,7 +65,7 @@ COPY frpc frpc
 COPY frpc.toml frpc.toml
 ENTRYPOINT ["./frpc", "-c","frpc.toml"]
 ```
-运行docker
+Dockerfile镜像已上传仓库，运行docker
 ```bash
 docker run --network host -d --name frps registry.cn-hangzhou.aliyuncs.com/zzdocker/frps:0.61
 
