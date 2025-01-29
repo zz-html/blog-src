@@ -29,6 +29,7 @@ ollama run deepseek-r1:8b
 # 停止运行
 ollama stop deepseek-r1:8b
 ```
+> 外部访问需要配置环境变量 OLLAMA_HOST=0.0.0.0 OLLAMA_ORIGINS=*
 
 ## Page Assist访问模型
 
@@ -49,12 +50,14 @@ Model选择“DeepSeek Coder”。
 ```json
   "models": [
     {
+      //"apiBase": "http://x.x.x.x:11343",//访问其他设备ollama
       "title": "deepseek-r1:8b",
       "model": "deepseek-r1:8b",
       "provider": "ollama"
     }
   ],
   "tabAutocompleteModel": {
+    //"apiBase": "http://x.x.x.x:11343",//访问其他设备ollama
     "title": "deepseek-r1:8b",
     "model": "deepseek-r1:8b",
     "provider": "ollama"
