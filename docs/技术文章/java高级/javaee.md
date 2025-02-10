@@ -1,6 +1,6 @@
 ---
 title: 'Java高级'
-date: 2000-05-01 12:44:15
+date: 2022-05-01 12:44:15
 tags:
 - 'Spring'
 - 'SpringBoot'
@@ -10,16 +10,57 @@ categories:
 
 ::: tip 说明
 
-这是Java高级的摘要内容，`vuepress`提供的语法块，这部分内容会显示在首页，不信你去首页看看
+JavaEE
 
-[点击免费观看教学视频](<https://ke.qq.com/course/5285550>)
 :::
 
 <!-- more -->
 
+## springboot工程maven打包libs依赖外置
+[示例源码：https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/spring-boot-lib-out](<https://github.com/ZHANG-ZHENG/spring-boot-study/tree/master/spring-boot-lib-out>)
 
+修改pom.xml
+```xml
+<plugins>
+   <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+      <!-- 禁用默认的FAT JAR打包 使用ZIP打包并排除jar包 -->
+      <configuration>
+         <layout>ZIP</layout>
+         <includes>
+            <include>
+               <groupId>nothing</groupId>
+               <artifactId>nothing</artifactId>
+            </include>
+         </includes>
+      </configuration>
+   </plugin>
+   <!-- 复制依赖到libs目录 -->
+   <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-dependency-plugin</artifactId>
+      <executions>
+         <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+               <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+               <outputDirectory>${project.build.directory}/libs</outputDirectory>
+               <overWriteReleases>false</overWriteReleases>
+               <overWriteSnapshots>false</overWriteSnapshots>
+            </configuration>
+         </execution>
+      </executions>
+   </plugin>
+</plugins>
+```
 
-下面就是正文，请开始你的表演...
+执行maven install，运行jar程序。
+```xml
+java -Dloader.path=./libs -jar lib-out-1.0.0.jar
+```
 
-注意下面只能声明`H2`的标题，不能使用`H1`，`H1`已经声明为正上方的`Java高级`
 
