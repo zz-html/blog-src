@@ -66,3 +66,16 @@ Model选择“DeepSeek Coder”。
 开始使用。
 ![Chat](./deepseek.assets/Chat.png)   
 
+## VS Code访问deepseek官网
+官网生成API keys  
+```json
+  "models": [
+    {
+      "title": "DeepSeek Chat",
+      "model": "deepseek-chat",
+      "contextLength": 128000,
+      "apiKey": "key-xxxxxxxxxxxxxxxxxx",
+      "provider": "deepseek"
+    }
+  ]
+```
