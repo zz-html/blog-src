@@ -1,29 +1,15 @@
 # `Vuepress`博客源码
 
-> 配套学习视频地址：https://www.bilibili.com/video/BV17t41177cr
+> 配套学习视频地址：[https://www.bilibili.com/video/BV17t41177cr](<https://www.bilibili.com/video/BV17t41177cr>)
 >
-> github预览地址：https://zz-html.github.io
+> github预览地址：[https://zz-html.github.io](<https://zz-html.github.io>)
 
 ## 运行
 
+```bash
+git clone git@github.com:zz-html/blog-src.git
+
+pnpm install
+
+pnpm run serve
 ```
-# 打开cmd 全局安装yarn
-$ npm i -g yarn
-
-# 设置yarn淘宝源，使用npm的同学，也是可以设置淘宝源
-$ yarn config set registry https://registry.npm.taobao.org
-
-$ git clone https://github.com/it235/it235-vuepress.git
-
-# 打开CMD命令行窗口
-$ cd it235-vuepress
-
-# 安装vuepress
-$ yarn add -D vuepress 或 npm install -g vuepress
-
-$ yarn docs:dev  或 npm run docs:dev
-```
-
-## 预览
-
-[网站](<https://zz-html.github.io>)
