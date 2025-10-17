@@ -13,3 +13,14 @@ pnpm install
 
 pnpm run serve
 ```
+
+## 发布
+
+```bash
+# git bash
+./deploy.sh
+```
+
+## 访问
+
+[https://zz-html.github.io](<https://zz-html.github.io>)
