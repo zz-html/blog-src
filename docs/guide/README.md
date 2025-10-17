@@ -22,7 +22,11 @@ isShowComment: true
 
 ## 本站微信小程序
 
+正式版：  
 ![小程序](./zSpace.jpg)
+
+体验版：  
+![小程序体验版](./zSpaceTest.png)
 
 小程序基于`uniapp`开发
 
